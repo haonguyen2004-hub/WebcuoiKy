@@ -3,7 +3,7 @@ session_start();
 ob_start();
 include 'includes/db_conn.inc';
 
-// Lấy tất cả sản phẩm để hiển thị ban đầu (random 8 sản phẩm)
+// Lấy tất cả sản phẩm để hiển thị ban đầu 
 $sql = "SELECT 
     product_id,
     product_name,
@@ -15,7 +15,7 @@ $sql = "SELECT
 FROM 
     products
 ORDER BY 
-    stock_quantity DESC
+    product_id DESC
 LIMIT 8;
 ";
 
@@ -42,8 +42,8 @@ $result = mysqli_query($conn, $sql);
         <div class="row featured__filter">
             <?php
             // Hiển thị sản phẩm nổi bật mặc định từ truy vấn ban đầu
-            while ($row = mysqli_fetch_assoc($result)): 
-            ?>
+            while ($row = mysqli_fetch_assoc($result)):
+                ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix">
                     <div class="featured__item">
                         <div class="featured__item__pic"
@@ -64,38 +64,6 @@ $result = mysqli_query($conn, $sql);
         </div>
     </div>
 </section>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-        // Tự động tải nội dung "Nổi bật" khi trang vừa tải
-        $.ajax({
-            url: 'includes/fetch_products.php',
-            type: 'GET',
-            data: { filter: 'all' },
-            success: function (response) {
-                $('.featured__filter').html(response); // Chèn HTML trả về vào .featured__filter
-                $('.featured__controls ul li[data-filter="all"]').addClass('active');
-            }
-        });
-
-        // Sự kiện click cho các tab
-        $('.featured__controls ul li').on('click', function () {
-            const filterType = $(this).data('filter');
-            $('.featured__controls ul li').removeClass('active');
-            $(this).addClass('active');
-
-            $.ajax({
-                url: 'includes/fetch_products.php',
-                type: 'GET',
-                data: { filter: filterType },
-                success: function (response) {
-                    $('.featured__filter').html(response); // Chèn HTML trả về vào .featured__filter
-                }
-            });
-        });
-    });
-</script>
 
 <?php
 $content = ob_get_clean();

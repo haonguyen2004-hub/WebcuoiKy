@@ -1,7 +1,7 @@
 <?php
 include 'db_conn.inc';
 
-ob_start(); // Bắt đầu output buffering
+ob_start(); 
 
 $filter = $_GET['filter'] ?? 'all';
 
@@ -13,15 +13,15 @@ $sql = "SELECT
         FROM 
             products p ";
 
-// Thêm điều kiện lọc sản phẩm
+
 if ($filter === 'new') {
-    $sql .= "ORDER BY p.created_at DESC LIMIT 8"; // Lấy 8 sản phẩm mới nhất
+    $sql .= "ORDER BY p.created_at DESC LIMIT 8"; 
 } elseif ($filter === 'hot') {
     $sql .= "LEFT JOIN orderdetails od ON p.product_id = od.product_id
              GROUP BY p.product_id
-             ORDER BY SUM(od.quantity) DESC LIMIT 8"; // Lấy 8 sản phẩm bán chạy
+             ORDER BY SUM(od.quantity) DESC LIMIT 8"; 
 } else {
-    $sql .= "ORDER BY RAND() LIMIT 8"; // Lấy 8 sản phẩm ngẫu nhiên
+    $sql .= "ORDER BY product_id DESC LIMIT 8"; 
 }
 
 $result = mysqli_query($conn, $sql);
