@@ -1,109 +1,103 @@
-<?php ob_start();
-include 'includes/db_conn.inc';
-?>
-
 <?php
-$sql = "SELECT * FROM products ORDER BY created_at DESC LiMIT 6";
+session_start();
+ob_start();
+include 'includes/db_conn.inc';
+
+// Lấy tất cả sản phẩm để hiển thị ban đầu (random 8 sản phẩm)
+$sql = "SELECT 
+    product_id,
+    product_name,
+    description,
+    price,
+    stock_quantity,
+    product_image,
+    category_id
+FROM 
+    products
+ORDER BY 
+    stock_quantity DESC
+LIMIT 8;
+";
+
 $result = mysqli_query($conn, $sql);
 ?>
- 
+
 <!-- Featured Section Begin -->
 <section class="featured spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Sản phẩm nổi bậc</h2>
+                    <h2>Sản phẩm</h2>
                 </div>
                 <div class="featured__controls">
                     <ul>
-                        <li class="active" data-filter="*">Tất cả</li>
-                        <li data-filter=".new">Mới nhất</li>
-                        <li data-filter=".hot">Bán chạy</li>
-                        <li data-filter=".like">Lượt thích</li>
-                      
-                      
+                        <li class="active" data-filter="all">Nổi bật</li>
+                        <li data-filter="new">Mới nhất</li>
+                        <li data-filter="hot">Bán chạy</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="row featured__filter">
-            <div class="col-lg-3 col-md-4 col-sm-6 mix new ">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$31.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 hot ">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$32.00</h5>
+            <?php
+            // Hiển thị sản phẩm nổi bật mặc định từ truy vấn ban đầu
+            while ($row = mysqli_fetch_assoc($result)): 
+            ?>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix">
+                    <div class="featured__item">
+                        <div class="featured__item__pic"
+                            style="background-image: url('img/product/<?php echo htmlspecialchars($row['product_image']); ?>');">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#"><?php echo htmlspecialchars($row['product_name']); ?></a></h6>
+                            <h5><?php echo '$' . number_format($row['price'], 2); ?></h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix like">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$33.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix like">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$34.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix hot">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$35.00</h5>
-                    </div>
-                </div>
-            </div>
+            <?php endwhile; ?>
         </div>
-        <?php
-        $content = ob_get_clean();
-        include "includes/layout.php"; ?>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Tự động tải nội dung "Nổi bật" khi trang vừa tải
+        $.ajax({
+            url: 'includes/fetch_products.php',
+            type: 'GET',
+            data: { filter: 'all' },
+            success: function (response) {
+                $('.featured__filter').html(response); // Chèn HTML trả về vào .featured__filter
+                $('.featured__controls ul li[data-filter="all"]').addClass('active');
+            }
+        });
+
+        // Sự kiện click cho các tab
+        $('.featured__controls ul li').on('click', function () {
+            const filterType = $(this).data('filter');
+            $('.featured__controls ul li').removeClass('active');
+            $(this).addClass('active');
+
+            $.ajax({
+                url: 'includes/fetch_products.php',
+                type: 'GET',
+                data: { filter: filterType },
+                success: function (response) {
+                    $('.featured__filter').html(response); // Chèn HTML trả về vào .featured__filter
+                }
+            });
+        });
+    });
+</script>
+
+<?php
+$content = ob_get_clean();
+include "includes/layout.php";
+?>

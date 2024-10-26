@@ -12,7 +12,6 @@ $result = mysqli_query($conn, $sql);
                         <span>Tất cả danh mục</span>
                     </div>
                     <ul>
-                        
                         <?php
                         while ($row = mysqli_fetch_assoc($result)) {
                          //   echo '<a href="sachtheochude.php?id=' . $row['MaCD'] . '" class="list-group-item">' . $row['TenChuDe'] . '</a>';
