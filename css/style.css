@@ -828,6 +828,10 @@ ol {
 	padding-bottom: 40px;
 }
 
+.featured__filter {
+	position: relative;
+    overflow: hidden;
+}
 
 .featured__controls {
 	text-align: center;
