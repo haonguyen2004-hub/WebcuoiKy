@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    // Tự động tải nội dung "Nổi bật" khi trang vừa tải
     $.ajax({
         url: 'includes/fetch_products.php',
         type: 'GET',
@@ -10,13 +9,11 @@ $(document).ready(function () {
         }
     });
 
-    // Sự kiện click cho các tab
     $('.featured__controls ul li').on('click', function () {
         const filterType = $(this).data('filter');
         $('.featured__controls ul li').removeClass('active');
         $(this).addClass('active');
 
-        // Thêm hiệu ứng chuyển động từ trái
         $('.featured__filter').animate({ left: '-100%', opacity: 0 }, 500, function() {
             $.ajax({
                 url: 'includes/fetch_products.php',
