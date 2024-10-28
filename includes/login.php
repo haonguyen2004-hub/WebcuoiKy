@@ -37,7 +37,7 @@
             </div>
             <div class="d-flex align-items-center">
                 <span class="me-2">Bạn chưa có tài khoản?</span>
-                <a href="#" class="btn btn-link p-1 text-primary text-decoration-none">Đăng ký một tài khoản</a>
+                <a href="signup.php " class="btn btn-link p-1 text-primary text-decoration-none">Đăng ký một tài khoản</a>
             </div>
 
         </div>
@@ -83,9 +83,6 @@
   to {transform: scale(1)}
 }
         </style>
-
-
-
 <script>
     // Get the modal
     var modal = document.getElementById('id01');

@@ -4,14 +4,7 @@ ob_start();
 include 'includes/db_conn.inc';
 
 ?>
-<div class="hero__item set-bg w-100" data-setbg="img/banner/bannerHome.png">
-    <div class="hero__text">
-    </div>
-</div>
-</div>
-</div>
-</div>
-</section>
+
 <?php include "includes/categories.php"; ?>
 <section class="featured spad">
     <div class="container">
