@@ -3,23 +3,6 @@ session_start();
 ob_start();
 include 'includes/db_conn.inc';
 
-// Lấy tất cả sản phẩm để hiển thị ban đầu 
-$sql = "SELECT 
-    product_id,
-    product_name,
-    description,
-    price,
-    stock_quantity,
-    product_image,
-    category_id
-FROM 
-    products
-ORDER BY 
-    product_id DESC
-LIMIT 8;
-";
-
-$result = mysqli_query($conn, $sql);
 ?>
 <div class="hero__item set-bg w-100" data-setbg="img/banner/bannerHome.png">
     <div class="hero__text">
@@ -30,7 +13,6 @@ $result = mysqli_query($conn, $sql);
 </div>
 </section>
 <?php include "includes/categories.php"; ?>
-<!-- Featured Section Begin -->
 <section class="featured spad">
     <div class="container">
         <div class="row">
@@ -42,14 +24,13 @@ $result = mysqli_query($conn, $sql);
                     <ul>
                         <li class="active" data-filter="all">Nổi bật</li>
                         <li data-filter="new">Mới nhất</li>
-                        <li data-filter="hot">Bán chạy</li>
+                        <li data-filter="hot">Bán chạy</li> 
                     </ul>
                 </div>
             </div>
         </div>
         <div class="row featured__filter">
-            <?php
-            // Hiển thị sản phẩm nổi bật mặc định từ truy vấn ban đầu
+            <?php                                                                                                                                                                                                                                            
             while ($row = mysqli_fetch_assoc($result)):
                 ?>
                 <?php
