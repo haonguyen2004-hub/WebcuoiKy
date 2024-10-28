@@ -6,6 +6,10 @@ $result = mysqli_query($conn, $sql);
 <section class="categories">
     <div class="container">
         <div class="row">
+        <div class="col-lg-12 pt-4">
+        <div class="section-title ">
+                    <h2 class = "justify-content-center ">Danh mục sản phẩm</h2>
+                </div>
             <div class="categories__slider owl-carousel">
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -16,6 +20,7 @@ $result = mysqli_query($conn, $sql);
                 ?>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <!-- Categories Section End -->

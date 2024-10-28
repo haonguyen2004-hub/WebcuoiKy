@@ -12,16 +12,14 @@
                 <h2>Đăng Nhập</h2>
             </div>
 
-            <div class="mb-3">
-                <label for="uname" class="d-flex justify-content-start"><b>Tên Đăng Nhập</b></label>
-                <input type="text" class="form-control" id="uname" placeholder="Nhập tên đăng nhập" name="uname"
-                    required>
-            </div>
-
-            <div class="mb-3">
-                <label for="psw" class="d-flex justify-content-start"><b>Mật Khẩu</b></label>
-                <input type="password" class="form-control" id="psw" placeholder="Nhập mật khẩu" name="psw" required>
-            </div>
+            <div class="form-floating mb-3 ">
+  <input type="email" class="form-control mb-3" id="floatingInput" placeholder="name@example.com">
+  <label for="floatingInput">Nhập tên tài khoản</label>
+</div>
+<div class="form-floating">
+  <input type="password" class="form-control mb-3" id="floatingPassword" placeholder="Password">
+  <label for="floatingPassword">Mật khẩu</label>
+</div>
 
             <div class="d-flex justify-content-between align-items-center mb-1">
                 <label>
@@ -32,7 +30,7 @@
             </div>
             <div class="mb-2">
 
-                <button type="submit" class="btn btn-primary w-100 p-1">Đăng Nhập</button>
+                <button type="submit" class="btn btn-primary w-100 p-2 mb-2 btn-lg">Đăng Nhập</button>
 
             </div>
             <div class="d-flex align-items-center">
@@ -56,16 +54,12 @@
             .avatar {
                 width: 100px;
                 height: 100px;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
             }
 
-            .cancelbtn {
-                background-color: #f44336;
-                /* Red */
-                color: white;
-                padding: 10px 15px;
-                border: none;
-                border-radius: 5px;
+            
+            .form-control {
+                height: 30px;
             }
             /* Add Zoom Animation */
 .animate {

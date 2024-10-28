@@ -72,7 +72,10 @@ if (isset($_GET['id'])) {
         </div>
     </section>
     <!-- Product Details Section End -->
+    <style >
 
+
+</style>
 <?php
 $content = ob_get_clean();
 include "includes/layout.php";

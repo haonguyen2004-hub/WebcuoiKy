@@ -43,10 +43,10 @@ while ($row = mysqli_fetch_assoc($result)):
                 </a>
                 <ul class="featured__item__pic__hover">
 
-                    <li><a href="shop-details.php?id=<?php echo $row['product_id']; ?>"><i class="fa-solid fa-eye"></i></a>
+                    <li title="Xem sản phẩm"><a href="shop-details.php?id=<?php echo $row['product_id']; ?>"><i class="fa-solid fa-eye" ></i></a>
                     </li>
-                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li title="Chuyển Ảnh"><a href="#"><i class="fa fa-retweet" ></i></a></li>
+                    <li title="Thêm vào giỏ hàng"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                 </ul>
             </div>
             <div class="featured__item__text">

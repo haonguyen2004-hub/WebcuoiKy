@@ -5,6 +5,7 @@ include 'includes/db_conn.inc';
 
 ?>
 
+<?php include "includes/slider.php"; ?>
 <?php include "includes/categories.php"; ?>
 <section class="featured spad">
     <div class="container">
@@ -17,13 +18,13 @@ include 'includes/db_conn.inc';
                     <ul>
                         <li class="active" data-filter="all">Nổi bật</li>
                         <li data-filter="new">Mới nhất</li>
-                        <li data-filter="hot">Bán chạy</li> 
+                        <li data-filter="hot">Bán chạy</li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="row featured__filter">
-            <?php                                                                                                                                                                                                                                            
+            <?php
             while ($row = mysqli_fetch_assoc($result)):
                 ?>
                 <?php

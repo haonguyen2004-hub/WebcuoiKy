@@ -5,11 +5,11 @@ include 'includes/db_conn.inc';
 
 ?>
 
-<section class="featured spad">
+<section class=" ">
 <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
-                <h2 class="text-left mt-5 mb-4 w-100">Tạo tài khoản Khách hàng</h2>
+                <h2 class="text-left mt-5 mb-4 w-100">Đăng ký tài khoản</h2>
                 <form>
                     <!-- First Name -->
                     <div class="form-group">
@@ -42,7 +42,7 @@ include 'includes/db_conn.inc';
                     </div>
 
                     <!-- Register Button -->
-                    <button type="submit" class="btn btn-dark btn-block">Đăng ký</button>
+                    <button type="submit" class="btn btn-dark btn-block p-2 mb-2 btn-lg">Đăng ký</button>
 
                     <!-- Back Link -->
                     <div class="text-center mt-3">
@@ -53,7 +53,15 @@ include 'includes/db_conn.inc';
         </div>
     </div>
 </section>
-
+<style >
+    .hero__item 
+    {
+        display: none;
+    }
+    .unactive{
+        display: none;
+    }
+</style>
 <?php
 $content = ob_get_clean();
 include "includes/layout.php";

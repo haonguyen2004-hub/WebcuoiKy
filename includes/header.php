@@ -36,13 +36,13 @@
                 <li><a href="./shop-grid.php">Cửa hàng</a></li>
                 <li><a href="#">Pages</a>
                     <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.php">Shop Details</a></li>
-                        <li><a href="./shoping-cart.php">Shoping Cart</a></li>
-                        <li><a href="./checkout.php">Check Out</a></li>
-                        <li><a href="./blog-details.php">Blog Details</a></li>
+                        <li><a href="./shop-details.php">Sản phẩm</a></li>
+                        <li><a href="./shoping-cart.php">Giỏ hàng</a></li>
+                        <li><a href="./checkout.php">Thanh toán</a></li>
+                      
                     </ul>
                 </li>
-                <li><a href="./blog.php">Blog</a></li>
+          
                 <li><a href="./contact.php">Contact</a></li>
             </ul>
         </nav>
@@ -114,7 +114,7 @@
                                     <li><a href="./blog-details.php">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.php">Tin tức</a></li>
+                        
                             <li><a href="./contact.php">Liên hệ</a></li>
                         </ul>
                     </nav>
