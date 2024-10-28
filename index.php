@@ -26,9 +26,9 @@ $result = mysqli_query($conn, $sql);
     </div>
 </div>
 </div>
-            </div>
-        </div>
-    </section>
+</div>
+</div>
+</section>
 <?php include "includes/categories.php"; ?>
 <!-- Featured Section Begin -->
 <section class="featured spad">

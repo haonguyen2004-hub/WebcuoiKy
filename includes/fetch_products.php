@@ -36,18 +36,18 @@ while ($row = mysqli_fetch_assoc($result)):
     <div class="col-lg-3 col-md-4 col-sm-6 mix">
         <div class="featured__item">
             <div class="featured__item__pic">
-            <a href="shop-details.php?id=<?php echo $row['product_id']; ?>">  <img src="img/product/<?php echo htmlspecialchars($row['product_image']); ?>"
-                    alt="<?php echo htmlspecialchars($row['product_name']); ?>"
-                    style="width: 100%; height: auto; object-fit: cover;">
-               </a>
-                    <ul class="featured__item__pic__hover">
-                   
-                        <li><a href="shop-details.php?id=<?php echo $row['product_id']; ?>"><i class="fa-solid fa-eye"></i></a></li>
-                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                    
-                    </ul>
-               
+                <a href="shop-details.php?id=<?php echo $row['product_id']; ?>"> <img
+                        src="img/product/<?php echo htmlspecialchars($row['product_image']); ?>"
+                        alt="<?php echo htmlspecialchars($row['product_name']); ?>"
+                        style="width: 100%; height: auto; object-fit: cover;">
+                </a>
+                <ul class="featured__item__pic__hover">
+
+                    <li><a href="shop-details.php?id=<?php echo $row['product_id']; ?>"><i class="fa-solid fa-eye"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                </ul>
             </div>
             <div class="featured__item__text">
                 <h6><a
