@@ -21,7 +21,15 @@ LIMIT 8;
 
 $result = mysqli_query($conn, $sql);
 ?>
-
+<div class="hero__item set-bg w-100" data-setbg="img/banner/bannerHome.png">
+    <div class="hero__text">
+    </div>
+</div>
+</div>
+            </div>
+        </div>
+    </section>
+<?php include "includes/categories.php"; ?>
 <!-- Featured Section Begin -->
 <section class="featured spad">
     <div class="container">
@@ -44,9 +52,9 @@ $result = mysqli_query($conn, $sql);
             // Hiển thị sản phẩm nổi bật mặc định từ truy vấn ban đầu
             while ($row = mysqli_fetch_assoc($result)):
                 ?>
-               <?php 
-               echo $content;
-               ?>
+                <?php
+                echo $content;
+                ?>
             <?php endwhile; ?>
         </div>
     </div>
@@ -55,4 +63,5 @@ $result = mysqli_query($conn, $sql);
 <?php
 $content = ob_get_clean();
 include "includes/layout.php";
+
 ?>

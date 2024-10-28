@@ -22,12 +22,13 @@ include 'db_conn.inc';
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 </head>
 <body>
 <?php include "header.php"; ?>
 <?php include "listCategories.php"; ?>
 <?php include "search.php"; ?>
-<?php include "categories.php"; ?>
+
 
 <?php echo $content ?>
 

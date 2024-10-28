@@ -20,14 +20,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg w-100" data-setbg="img/banner/bannerHome.png">
-                        <div class="hero__text">
-                           
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                   
+              
     <!-- Hero Section End -->
