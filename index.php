@@ -35,7 +35,6 @@ $result = mysqli_query($conn, $sql);
                         <li class="active" data-filter="all">Nổi bật</li>
                         <li data-filter="new">Mới nhất</li>
                         <li data-filter="hot">Bán chạy</li>
-                        <li> lo chia </li>
                     </ul>
                 </div>
             </div>
@@ -45,9 +44,9 @@ $result = mysqli_query($conn, $sql);
             // Hiển thị sản phẩm nổi bật mặc định từ truy vấn ban đầu
             while ($row = mysqli_fetch_assoc($result)):
                 ?>
-               <?php 
-               echo $content;
-               ?>
+                <?php
+                echo $content;
+                ?>
             <?php endwhile; ?>
         </div>
     </div>
