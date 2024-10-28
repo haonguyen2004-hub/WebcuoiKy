@@ -35,6 +35,7 @@ $result = mysqli_query($conn, $sql);
                         <li class="active" data-filter="all">Nổi bật</li>
                         <li data-filter="new">Mới nhất</li>
                         <li data-filter="hot">Bán chạy</li>
+                        <li> lo chia </li>
                     </ul>
                 </div>
             </div>
