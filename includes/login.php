@@ -3,7 +3,7 @@
 
 
     <!-- Modal Content -->
-    <form class="" action="/action_page.php">
+    <form class="animate" action="/action_page.php">
         <div class="login-container mt-5">
             <span onclick="document.getElementById('id01').style.display='none'" class="close"
                 title="Hủy đăng nhập">&times;</span>
@@ -67,6 +67,21 @@
                 border: none;
                 border-radius: 5px;
             }
+            /* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
         </style>
 
 
