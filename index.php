@@ -28,7 +28,7 @@ include 'includes/db_conn.inc';
             while ($row = mysqli_fetch_assoc($result)):
                 ?>
                 <?php
-                echo $content;
+                include "includes/fetch_products.php";
                 ?>
             <?php endwhile; ?>
         </div>
@@ -38,5 +38,4 @@ include 'includes/db_conn.inc';
 <?php
 $content = ob_get_clean();
 include "includes/layout.php";
-
 ?>

@@ -24,7 +24,7 @@ if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $productName = $row['product_name'];
         $productImage = $row['product_image'];
-        $originalPrice = number_format($row['original_price'], 2);
+        $originalPrice = number_format($row['original_price'], 0); // Chỉ hiện phần nguyên
 
         // Tính toán giá sau khi giảm
         if ($row['discount_type'] == 'percentage') {
@@ -32,10 +32,10 @@ if (mysqli_num_rows($result) > 0) {
             $discountValue = $row['discount_value'] . '%';
         } else {
             $discountedPrice = $row['original_price'] - $row['discount_value'];
-            $discountValue = '$' . number_format($row['discount_value'], 2);
+            $discountValue = number_format($row['discount_value'], 0) .'VNĐ'; // Chỉ hiện phần nguyên
         }
         
-        $discountedPrice = number_format($discountedPrice, 2);
+        $discountedPrice = number_format(floor($discountedPrice), 0); // Làm tròn xuống và bỏ phần thập phân
         ?>
 
         <div class="col-lg-4">
@@ -51,8 +51,8 @@ if (mysqli_num_rows($result) > 0) {
                 <div class="product__discount__item__text">
                     <span>Sản phẩm giám giá</span>
                     <h5><a href="#"><?php echo htmlspecialchars($productName); ?></a></h5>
-                    <div class="product__item__price">$<?php echo $discountedPrice; ?>
-                        <span>$<?php echo $originalPrice; ?></span></div>
+                    <div class="product__item__price"><?php echo $discountedPrice; ?> VNĐ
+                        <span><?php echo $originalPrice; ?> VNĐ</span></div>
                 </div>
             </div>
         </div>

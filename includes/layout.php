@@ -32,11 +32,7 @@ include 'db_conn.inc';
 <body>
 <?php include "header.php"; ?>
 <?php include "search.php";?>
-
-
 <?php echo $content ?>
-
-
 <?php include "footer.php"; ?>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="js/changpage.js"></script>

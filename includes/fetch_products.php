@@ -53,11 +53,11 @@ while ($row = mysqli_fetch_assoc($result)):
                 <h6><a
                         href="shop-details.php?id=<?php echo $row['product_id']; ?>"><?php echo htmlspecialchars($row['product_name']); ?></a>
                 </h6>
-                <h5><?php echo '$' . number_format($row['price'], 2); ?></h5>
+                <h5><?php echo number_format($row['price'], 0) . ' VNĐ'; ?></h5>
             </div>
         </div>
     </div>
 <?php endwhile;
 
-$content = ob_get_clean(); // Kết thúc output buffering và lưu vào biến $content
-echo $content; // Xuất nội dung HTML trực tiếp để AJAX nhận đúng phần tử cần thiết
+$content = ob_get_clean(); 
+echo $content; 
