@@ -32,27 +32,31 @@ if (mysqli_num_rows($result) > 0) {
             $discountValue = $row['discount_value'] . '%';
         } else {
             $discountedPrice = $row['original_price'] - $row['discount_value'];
-            $discountValue = number_format($row['discount_value'], 0) .'VNĐ'; // Chỉ hiện phần nguyên
+            $discountValue = number_format($row['discount_value'], 0) . 'VNĐ'; // Chỉ hiện phần nguyên
         }
-        
+
         $discountedPrice = number_format(floor($discountedPrice), 0); // Làm tròn xuống và bỏ phần thập phân
         ?>
 
         <div class="col-lg-4">
             <div class="product__discount__item">
-                <div class="product__discount__item__pic set-bg" data-setbg="img/product/<?php echo htmlspecialchars($productImage); ?>">
+                <div class="product__discount__item__pic set-bg"
+                    data-setbg="img/product/<?php echo htmlspecialchars($productImage); ?>">
                     <div class="product__discount__percent">-<?php echo $discountValue; ?></div>
                     <ul class="product__item__pic__hover">
-                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        <li title="Xem sản phẩm"><a href="shop-details.php?id=<?php echo $row['product_id']; ?>"><i
+                                    class="fa-solid fa-eye"></i></a>
+                        </li>
+                        <li title="Chuyển Ảnh"><a href="#"><i class="fa fa-retweet"></i></a></li>
+                        <li title="Thêm vào giỏ hàng"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                     </ul>
                 </div>
                 <div class="product__discount__item__text">
                     <span>Sản phẩm giám giá</span>
                     <h5><a href="#"><?php echo htmlspecialchars($productName); ?></a></h5>
                     <div class="product__item__price"><?php echo $discountedPrice; ?> VNĐ
-                        <span><?php echo $originalPrice; ?> VNĐ</span></div>
+                        <span><?php echo $originalPrice; ?> VNĐ</span>
+                    </div>
                 </div>
             </div>
         </div>
