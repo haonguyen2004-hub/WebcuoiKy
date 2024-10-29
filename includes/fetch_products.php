@@ -1,10 +1,13 @@
 <?php
 include 'db_conn.inc';
 
+// Bắt đầu bộ đệm đầu ra
 ob_start();
 
+// Nhận giá trị bộ lọc từ URL, mặc định là 'all' nếu không có
 $filter = $_GET['filter'] ?? 'all';
 
+// Truy vấn SQL cơ bản để lấy sản phẩm
 $sql = "SELECT 
             p.product_id,
             p.product_name,
@@ -13,7 +16,7 @@ $sql = "SELECT
         FROM 
             products p ";
 
-
+// Xử lý bộ lọc
 if ($filter === 'new') {
     $sql .= "ORDER BY p.created_at DESC LIMIT 8";
 } elseif ($filter === 'hot') {
@@ -21,11 +24,13 @@ if ($filter === 'new') {
              GROUP BY p.product_id
              ORDER BY SUM(od.quantity) DESC LIMIT 8";
 } else {
-    $sql .= "ORDER BY product_id DESC LIMIT 8";
+    $sql .= "ORDER BY p.product_id DESC LIMIT 8";
 }
 
+// Thực hiện truy vấn
 $result = mysqli_query($conn, $sql);
 
+// Kiểm tra lỗi truy vấn
 if (!$result) {
     die("Lỗi truy vấn SQL: " . mysqli_error($conn));
 }
@@ -43,9 +48,10 @@ while ($row = mysqli_fetch_assoc($result)):
                 </a>
                 <ul class="featured__item__pic__hover">
 
-                    <li title="Xem sản phẩm"><a href="shop-details.php?id=<?php echo $row['product_id']; ?>"><i class="fa-solid fa-eye" ></i></a>
+                    <li title="Xem sản phẩm"><a href="shop-details.php?id=<?php echo $row['product_id']; ?>"><i
+                                class="fa-solid fa-eye"></i></a>
                     </li>
-                    <li title="Chuyển Ảnh"><a href="#"><i class="fa fa-retweet" ></i></a></li>
+                    <li title="Chuyển Ảnh"><a href="#"><i class="fa fa-retweet"></i></a></li>
                     <li title="Thêm vào giỏ hàng"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                 </ul>
             </div>
@@ -59,5 +65,7 @@ while ($row = mysqli_fetch_assoc($result)):
     </div>
 <?php endwhile;
 
-$content = ob_get_clean(); 
-echo $content; 
+// Kết thúc và xuất nội dung
+$content = ob_get_clean();
+echo $content;
+?>
