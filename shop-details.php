@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
     $cake = mysqli_fetch_assoc($result);
 } else {
 
-    echo "Không tìm thấy sách.";
+    echo "Không tìm thấy dữ liệu.";
     exit;
 } ?>
 

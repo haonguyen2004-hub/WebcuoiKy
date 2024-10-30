@@ -28,7 +28,7 @@ $result = mysqli_query($conn, $sql);
                         <ul>
                             <?php
                             while ($row = mysqli_fetch_assoc($result)) {
-                                echo '<li ><a href="#">' . $row['category_name'] . '</a></li>';
+                                echo '<li ><a href="shop-categories.php?id='.$row['category_id'].'&name='.$row['category_name'].'">' . $row['category_name'] . '</a></li>';
                             }
                             ?>
                         </ul>

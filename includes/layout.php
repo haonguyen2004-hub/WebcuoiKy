@@ -36,7 +36,7 @@ include 'db_conn.inc';
 <?php include "footer.php"; ?>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="js/changpage.js"></script>
-<script src="js/switchpage.js"></script>
+<script src="js/loadloginform.js"></script>
 </body>
 
 </html> 
