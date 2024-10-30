@@ -13,9 +13,9 @@ $result = mysqli_query($conn, $sql);
             <div class="categories__slider owl-carousel">
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<div class="col-lg-3">';
+                    echo ' <div class="col-lg-3">';
                     echo '<div class="categories__item set-bg" data-setbg="img/categories/' . $row['category_image'] . '">';
-                    echo '<h5><a href="#">' . $row['category_name'] . '</a></h5> </div> </div>';
+                    echo '<h5><a href="shop-categories.php?id='.$row['category_id'].'&name='.$row['category_name'].'">' . $row['category_name'] . '</a></h5> </div> </div>';
                 }
                 ?>
             </div>
