@@ -32,7 +32,7 @@ if (mysqli_num_rows($result) > 0) {
             $discountValue = $row['discount_value'] . '%';
         } else {
             $discountedPrice = $row['original_price'] - $row['discount_value'];
-            $discountValue = number_format($row['discount_value'], 0) . 'VNĐ'; // Chỉ hiện phần nguyên
+            $discountValue = number_format($row['discount_value'], 0); // Chỉ hiện phần nguyên
         }
 
         $discountedPrice = number_format(floor($discountedPrice), 0); // Làm tròn xuống và bỏ phần thập phân

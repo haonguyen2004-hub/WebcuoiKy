@@ -18,6 +18,15 @@ include("sidebar.php");
                 ?>
             </div>
         </div>
+        <div class="section-title product__discount__title">
+            <h2>Tất cả</h2>
+        </div>
+        <div class="row">
+            <?php
+            include 'includes/AllProduct.php';
+            ?>
+        </div>
+
     </div>
 </div>
 
