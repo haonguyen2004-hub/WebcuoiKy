@@ -51,27 +51,6 @@ $result = mysqli_query($conn, $sql);
                         </div>
                     </div>
                     <div class="sidebar__item">
-                        <h4>Kích cỡ</h4>
-                        <div class="sidebar__item__size">
-                            <label for="large">
-                                Lớn
-                                <input type="radio" id="large">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__size">
-                            <label for="medium">
-                                Vừa
-                                <input type="radio" id="medium">
-                            </label>
-                        </div>
-                        <div class="sidebar__item__size">
-                            <label for="small">
-                                Nhỏ
-                                <input type="radio" id="small">
-                            </label>
-                        </div>
-                    </div>
-                    <div class="sidebar__item">
                         <div class="latest-product__text">
                             <h4>Sản phẩm mới</h4>
                             <div class="latest-product__slider owl-carousel">

@@ -13,7 +13,7 @@ if (!isset($conn) || !$conn) {
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['TenDN']);
     $password = trim($_POST['MatKhau']);
-
+    
     if (empty($username) || empty($password)) {
         $thongbao = "Tên đăng nhập và mật khẩu không được trống.";
     } else {
@@ -24,10 +24,12 @@ if (!isset($conn) || !$conn) {
             $thongbao = "Tên đăng nhập không tồn tại.";
         } else {
             $user = mysqli_fetch_assoc($result);
-            if ($password === $user['password']) { // Cần mã hóa mật khẩu bằng password_hash()
+            // So sánh mật khẩu đã mã hóa (bạn nên sử dụng `password_verify` thay vì so sánh trực tiếp)
+            if ($password === $user['password']) {
+                // Thiết lập session cho người dùng
                 $_SESSION['user'] = $user;
+                $_SESSION['customer_id'] = $user['customer_id']; // Lưu ID của khách hàng vào session
                 echo "success";
-               
                 exit;
             } else {
                 $thongbao = "Mật khẩu không đúng.";
