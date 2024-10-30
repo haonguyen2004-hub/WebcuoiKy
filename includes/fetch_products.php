@@ -47,7 +47,6 @@ while ($row = mysqli_fetch_assoc($result)):
                         style="width: 100%; height: auto; object-fit: cover;">
                 </a>
                 <ul class="featured__item__pic__hover">
-
                     <li title="Xem sản phẩm"><a href="shop-details.php?id=<?php echo $row['product_id']; ?>"><i
                                 class="fa-solid fa-eye"></i></a>
                     </li>

@@ -21,12 +21,11 @@ include("sidebar.php");
         <div class="section-title product__discount__title">
             <h2>Tất cả</h2>
         </div>
-        <div class="row">
+        <div class="row product-list11">
             <?php
-            include 'includes/AllProduct.php';
+            include 'includes/ProductByCategory.php';
             ?>
         </div>
-
     </div>
 </div>
 
