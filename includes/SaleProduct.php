@@ -22,6 +22,7 @@ $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
+        $productId = $row['product_id'];
         $productName = $row['product_name'];
         $productImage = $row['product_image'];
         $originalPrice = number_format($row['original_price'], 0); // Chỉ hiện phần nguyên
@@ -44,15 +45,22 @@ if (mysqli_num_rows($result) > 0) {
                     data-setbg="img/product/<?php echo htmlspecialchars($productImage); ?>">
                     <div class="product__discount__percent">-<?php echo $discountValue; ?></div>
                     <ul class="product__item__pic__hover">
-                        <li title="Xem sản phẩm"><a href="shop-details.php?id=<?php echo $row['product_id']; ?>"><i
+                        <li title="Xem sản phẩm"><a href="shop-details.php?id=<?php echo $productId; ?>"><i
                                     class="fa-solid fa-eye"></i></a>
                         </li>
                         <li title="Chuyển Ảnh"><a href="#"><i class="fa fa-retweet"></i></a></li>
-                        <li title="Thêm vào giỏ hàng"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                        <!-- Nút thêm vào giỏ hàng với sự kiện AJAX -->
+                        <li title="Thêm vào giỏ hàng">
+                            <!-- Gọi addToCart trực tiếp qua onclick -->
+                            <a href="javascript:void(0);" onclick="addToCart(<?php echo $productId; ?>)">
+                                <i class="fa fa-shopping-cart"></i>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
                 <div class="product__discount__item__text">
-                    <span>Sản phẩm giám giá</span>
+                    <span>Sản phẩm giảm giá</span>
                     <h5><a href="#"><?php echo htmlspecialchars($productName); ?></a></h5>
                     <div class="product__item__price"><?php echo $discountedPrice; ?> VNĐ
                         <span><?php echo $originalPrice; ?> VNĐ</span>

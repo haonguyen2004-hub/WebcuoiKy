@@ -37,8 +37,11 @@ $cartId = $cart['cart_id'];
 $sqlCartItems = "SELECT ci.cart_item_id, p.product_name, p.product_image, ci.quantity, ci.price, (ci.quantity * ci.price) AS total_price
                  FROM cartitems ci
                  JOIN products p ON ci.product_id = p.product_id
-                 WHERE ci.cart_id = $cartId";
-$resultCartItems = mysqli_query($conn, $sqlCartItems);
+                 WHERE ci.cart_id = ?";
+$stmtItems = mysqli_prepare($conn, $sqlCartItems);
+mysqli_stmt_bind_param($stmtItems, "i", $cartId);
+mysqli_stmt_execute($stmtItems);
+$resultCartItems = mysqli_stmt_get_result($stmtItems);
 
 if (!$resultCartItems) {
     die("Lỗi truy vấn SQL: " . mysqli_error($conn));
@@ -78,7 +81,6 @@ $totalAmount = 0;
                                                 <input type="hidden" name="cart_item_id" value="<?php echo $item['cart_item_id']; ?>">
                                                 <div class="pro-qty">
                                                     <input type="number" name="quantity" value="<?php echo $item['quantity']; ?>" min="1" required>
-                                                    
                                                 </div>
                                             </form>
                                         </div>
@@ -93,7 +95,7 @@ $totalAmount = 0;
                                         </form>
                                     </td>
                                 </tr>
-                                <?php $totalAmount += $item['total_price']; ?>
+                                <?php $totalAmount += (float) $item['total_price']; ?>
                             <?php endwhile; ?>
                         </tbody>
                     </table>
