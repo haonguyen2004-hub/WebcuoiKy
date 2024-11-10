@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("ssdisii", $product_name, $description, $price, $stock_quantity, $product_image, $category_id, $product_id);
 
     if ($stmt->execute()) {
-        header("Location: product_management.php?message=updated");
+        header("Location: index.php?message=updated");
         exit();
     } else {
         echo "Lỗi khi cập nhật sản phẩm.";
@@ -70,8 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <div class="form-group mb-4">
             <label for="price">Giá:</label>
-            <input type="number" class="form-control" id="price" step="0.01" name="price"
-                value="<?php echo $product['price']; ?>" required>
+            <input type="number" class="form-control" id="price" step="1" name="price"
+                value="<?php echo number_format($product['price'], 0, '', ''); ?>" required>
         </div>
 
         <div class="form-group mb-4">
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
         <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-        <a href="product_management.php" class="btn btn-secondary">Hủy</a>
+        <a href="index.php" class="btn btn-secondary">Hủy</a>
     </form>
 </div>
 

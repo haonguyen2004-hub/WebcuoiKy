@@ -27,31 +27,34 @@
                 <span class="hide-menu">Quản lý sản phẩm</span>
               </a>
             </li>
-          
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ProductManager.php" aria-expanded="false">
+              <a class="sidebar-link" href="./CategoryManager.php" aria-expanded="false">
                 <span>
                 </span>
-                <span class="hide-menu">Quản lý giảm giá</span>
+                <span class="hide-menu">Quản lý danh mục</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="./DiscountManager.php" aria-expanded="false">
                 <span>
                 </span>
-                <span class="hide-menu">Quản lý đơn hàng</span>
+                <span class="hide-menu">Quản lý giảm giá</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="./OrderManager.php" aria-expanded="false">
                 <span>
                 </span>
-                <span class="hide-menu">Quản lý khách hàng</span>
+                <span class="hide-menu">Quản lý đơn hàng</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="./CustomerManager.php" aria-expanded="false">
-            </li>          
+                <span>
+                </span>
+                <span class="hide-menu">Quản lý khách hàng</span>
+              </a>
+            </li>         
           </ul>
           
         </nav>

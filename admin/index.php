@@ -55,7 +55,7 @@ $result = $stmt->get_result();
             <td><?php echo $row['product_id']; ?></td>
             <td><?php echo $row['product_name']; ?></td>
             <td><?php echo $row['description']; ?></td>
-            <td><?php echo number_format($row['price'], 2); ?> VND</td>
+            <td><?php echo number_format($row['price'], 0); ?></td>
             <td><?php echo $row['stock_quantity']; ?></td>
             <td><img src="../img/product/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>"
                 width="50"></td>
@@ -67,7 +67,7 @@ $result = $stmt->get_result();
                 <a href="edit_product.php?id=<?php echo $row['product_id']; ?>"
                   class="btn btn-sm btn-primary me-2">Sửa</a>
                 <a href="delete_product.php?id=<?php echo $row['product_id']; ?>" class="btn btn-sm btn-danger"
-                  onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');">Xóa</a>
+                  >Xóa</a>
               </div>
             </td>
           </tr>
