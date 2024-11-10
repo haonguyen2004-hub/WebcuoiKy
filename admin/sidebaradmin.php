@@ -7,7 +7,7 @@
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="./index.html" class="text-nowrap logo-img">
-            <img src="./assets/images/logos/dark-logo.svg" width="180" alt="" />
+            <img src="../img/logo.png" width="180" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -21,43 +21,37 @@
               <span class="hide-menu">Hệ thống quản trị</span>
             </li>     
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./home.php" aria-expanded="false">
-                <span>
-                </span>
-                <span class="hide-menu">Dashboard</span>
-              </a>
-            </li>
-          
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+              <a class="sidebar-link" href="./index.php" aria-expanded="false">
                 <span>
                 </span>
                 <span class="hide-menu">Quản lý sản phẩm</span>
               </a>
             </li>
+          
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./addproduct.php" aria-expanded="false">
+              <a class="sidebar-link" href="./ProductManager.php" aria-expanded="false">
                 <span>
                 </span>
-                <span class="hide-menu">Thêm sản phẩm</span>
+                <span class="hide-menu">Quản lý giảm giá</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+              <a class="sidebar-link" href="./DiscountManager.php" aria-expanded="false">
                 <span>
                 </span>
-                <span class="hide-menu">Login</span>
+                <span class="hide-menu">Quản lý đơn hàng</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+              <a class="sidebar-link" href="./OrderManager.php" aria-expanded="false">
                 <span>
                 </span>
-                <span class="hide-menu">Register</span>
+                <span class="hide-menu">Quản lý khách hàng</span>
               </a>
             </li>
-         
-           
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./CustomerManager.php" aria-expanded="false">
+            </li>          
           </ul>
           
         </nav>

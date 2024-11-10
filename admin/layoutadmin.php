@@ -13,7 +13,6 @@
  <?php include "sidebaradmin.php"?>
     <!--  Main wrapper -->
     <div class="body-wrapper">
-    <?php include "headeradmin.php"?>
     <?php echo $contentadmin ?>
   </div>
   <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
