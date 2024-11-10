@@ -31,7 +31,11 @@ while ($row = mysqli_fetch_assoc($result)):
                                 class="fa-solid fa-eye"></i></a>
                     </li>
                     <li title="Chuyển Ảnh"><a href="#"><i class="fa fa-retweet"></i></a></li>
-                    <li title="Thêm vào giỏ hàng"><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li title="Thêm vào giỏ hàng">
+                        <a href="javascript:void(0);" onclick="addToCart(<?php echo $row['product_id']; ?>)">
+                            <i class="fa fa-shopping-cart"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="product__item__text">
