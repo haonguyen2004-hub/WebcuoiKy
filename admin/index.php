@@ -77,16 +77,27 @@ $result = $stmt->get_result();
   </div>
 
   <!-- Phân trang -->
-  <nav>
-    <ul class="pagination justify-content-center">
-      <?php for ($page = 1; $page <= $total_pages; $page++): ?>
-        <li class="page-item <?php if ($page == $current_page)
-          echo 'active'; ?>">
-          <a class="page-link" href="?page=<?php echo $page; ?>"><?php echo $page; ?></a>
-        </li>
-      <?php endfor; ?>
-    </ul>
-  </nav>
+  <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <?php if ($current_page > 1): ?>
+                <li class="page-item">
+                    <a class="page-link" href="?page=<?php echo $current_page - 1; ?>">Trước</a>
+                </li>
+            <?php endif; ?>
+
+            <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                <li class="page-item <?php echo ($i == $current_page) ? 'active' : ''; ?>">
+                    <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                </li>
+            <?php endfor; ?>
+
+            <?php if ($current_page < $total_pages): ?>
+                <li class="page-item">
+                    <a class="page-link" href="?page=<?php echo $current_page + 1; ?>">Tiếp theo</a>
+                </li>
+            <?php endif; ?>
+        </ul>
+    </nav>
 </div>
 
 <?php

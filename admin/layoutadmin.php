@@ -13,7 +13,7 @@
  <?php include "sidebaradmin.php"?>
     <!--  Main wrapper -->
     <div class="body-wrapper">
-   <?php include "headeradmin.php"?>
+
     <?php echo $contentadmin ?>
   </div>
   <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
@@ -23,6 +23,7 @@
   <script src="./assets/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="./assets/libs/simplebar/dist/simplebar.js"></script>
   <script src="./assets/js/dashboard.js"></script>
+  <script src=".js/get_cart_info.js"></script>
 </body>
 
 </html>
