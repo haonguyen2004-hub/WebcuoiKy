@@ -2,7 +2,10 @@
 session_start();
 ob_start();
 include '../includes/db_conn.inc'; // Kết nối tới database
-
+if (!isset( $_SESSION['admin_logged_in'])) {
+  header("Location: loginadmin.php");
+exit;
+}
 // Thiết lập số sản phẩm trên mỗi trang
 $products_per_page = 5;
 

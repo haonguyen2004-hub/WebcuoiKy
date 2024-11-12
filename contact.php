@@ -111,7 +111,7 @@ try {
                 </div>
             </div>
         </div>
-        <form action="contact.php" method="POST" >
+        <form action="" method="POST" >
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <input type="text" placeholder="Tên" name="first_name" required>

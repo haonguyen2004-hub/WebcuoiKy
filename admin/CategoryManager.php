@@ -2,7 +2,10 @@
 <?php
 session_start();
 include '../includes/db_conn.inc'; // Kết nối tới database
-
+if (!isset( $_SESSION['admin_logged_in'])) {
+    header("Location: loginadmin.php");
+  exit;
+  }
 // Xử lý xóa danh mục
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];

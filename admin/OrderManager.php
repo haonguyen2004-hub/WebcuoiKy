@@ -2,7 +2,10 @@
 ob_start();
 session_start();
 include '../includes/db_conn.inc'; // Kết nối tới database
-
+if (!isset( $_SESSION['admin_logged_in'])) {
+    header("Location: loginadmin.php");
+  exit;
+  }
 // Số lượng bản ghi trên mỗi trang
 $records_per_page = 5;
 

@@ -10,7 +10,11 @@
 </head>
 
 <body>
- <?php include "sidebaradmin.php"?>
+ <?php
+ 
+  include "sidebaradmin.php"
+
+ ?>
     <!--  Main wrapper -->
     <div class="body-wrapper">
 

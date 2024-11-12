@@ -12,8 +12,8 @@ $thongbao = "";
 if (!isset($conn) || !$conn) {
     $thongbao = "Kết nối cơ sở dữ liệu thất bại.";
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_SESSION['user'])) {
-    $username = trim($_POST['TenDN']);
-    $password = trim($_POST['MatKhau']);
+    $username = @trim($_POST['TenDN']);
+    $password = @trim($_POST['MatKhau']);
 
     if (empty($username) || empty($password)) {
         $thongbao = "Tên đăng nhập và mật khẩu không được trống.";
@@ -71,7 +71,7 @@ if (!isset($conn) || !$conn) {
     <!-- Giao diện đăng nhập -->
     <button onclick="document.getElementById('id01').style.display='block'">Đăng nhập</button>
     <div id="id01" class="modal">
-        <form class="animate" action="login.php" method="POST">
+        <form class="animate" action="" method="POST">
             <div class="login-container mt-5">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close"
                     title="Hủy đăng nhập">&times;</span>
