@@ -56,7 +56,7 @@ if (!isset($conn) || !$conn) {
 <!-- Giao diện sau khi đăng nhập -->
 <?php if (isset($_SESSION['user'])): ?>
     <?php $kh = $_SESSION['user']; ?>
-    <button class="btn"> <i class="fas fa-user"></i>
+    <button class="btn" onclick="window.location.href='shop-infoUser.php'"> <i class="fas fa-user"></i>
         <?php echo htmlspecialchars($kh["first_name"] . " " . $kh["last_name"]); ?></button>
     <div class="dropdown">
         <button class="btn" style="border-left:1px solid navy">
