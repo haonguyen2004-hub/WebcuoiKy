@@ -71,7 +71,7 @@ if (!isset($conn) || !$conn) {
     <!-- Giao diện đăng nhập -->
     <button onclick="document.getElementById('id01').style.display='block'">Đăng nhập</button>
     <div id="id01" class="modal">
-        <form class="animate" action="" method="POST">
+        <form class="animate" action="login.php" method="POST">
             <div class="login-container mt-5">
                 <span onclick="document.getElementById('id01').style.display='none'" class="close"
                     title="Hủy đăng nhập">&times;</span>

@@ -1,6 +1,46 @@
 <?php
 ob_start();
 session_start();
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    // Lấy dữ liệu từ form
+    $first_name = trim($_POST['first_name']);
+    $contentEmail = trim($_POST['contentEmail']);
+    $email = trim($_POST['email']);
+
+$mail = new PHPMailer(true);
+try {
+    // Cấu hình SMTP
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'nhathoai2004@gmail.com';
+    $mail->Password = 'gakh cbdw xrny ahcv';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
+    $mail->CharSet = 'UTF-8';
+    // Cài đặt thông tin người gửi và người nhận
+    $mail->setFrom('nhathoai2004@gmail.com', '$first_name');
+    $mail->addAddress("999hoai@gmail.com", $first_name);
+
+    // Nội dung email
+    $mail->isHTML(true);
+    $mail->Subject = 'Email liên hệ từ khách hàng';
+    $mail->Body = " $contentEmail";
+    $mail->AltBody = "Chào $first_name, Tui có điều muốn nói.";
+
+    // Gửi email
+    $mail->send();
+    $thongbao = "Cảm ơn bạn đã liên hệ";
+} catch (Exception $e) {
+    $thongbao = "Chủ tiệm đi vắng rồi. liên hệ sau nhé";
+}
+}
 ?>
 
 <!-- Contact Section Begin -->
@@ -42,16 +82,16 @@ session_start();
 
 <!-- Map Begin -->
 <div class="map">
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49116.39176087041!2d-86.41867791216099!3d39.69977417971648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886ca48c841038a1%3A0x70cfba96bf847f0!2sPlainfield%2C%20IN%2C%20USA!5e0!3m2!1sen!2sbd!4v1586106673811!5m2!1sen!2sbd"
-        height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+  
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.0893054639673!2d106.70927937451938!3d10.956626455845088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d751e024b99d%3A0x20b3f9b4c8fdc732!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBLaW5oIHThur8gLSBL4bu5IHRodeG6rXQgQsOsbmggRMawxqFuZw!5e0!3m2!1svi!2s!4v1731419315971!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     <div class="map-inside">
         <i class="icon_pin"></i>
         <div class="inside-widget">
-            <h4>New York</h4>
+            <h4>KTKT BinhDuong</h4>
             <ul>
-                <li>Phone: +12-345-6789</li>
-                <li>Add: 16 Creek Ave. Farmingdale, NY</li>
+                <li>Điện thoại: 0908677351</li>
+                <li>Địa chỉ: Thuận Giao, Thuận An, Bình Dương</li>
             </ul>
         </div>
     </div>
@@ -65,20 +105,23 @@ session_start();
             <div class="col-lg-12">
                 <div class="contact__form__title">
                     <h2>Có gì muốn nói với chúng tôi</h2>
+                    <?php if (!empty($thongbao)): ?>
+                        <p style="color:red; text-align:center;"><?php echo $thongbao; ?></p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
-        <form action="#">
+        <form action="contact.php" method="POST" >
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Tên">
+                    <input type="text" placeholder="Tên" name="first_name" required>
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    <input type="text" placeholder="Email">
+                    <input type="text" placeholder="Email" required>
                 </div>
                 <div class="col-lg-12 text-center">
-                    <textarea placeholder="Tin nhắn"></textarea>
-                    <button type="submit" class="site-btn">Gửi tin nhắn</button>
+                    <textarea placeholder="Tin nhắn" name="contentEmail" required ></textarea>
+                    <button type="submit" class="site-btn" name="email">Gửi tin nhắn</button>
                 </div>
             </div>
         </form>
