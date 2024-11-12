@@ -115,7 +115,7 @@ $totalAmount = 0;
                         <div class="shoping__discount">
                             <h5>Mã giảm giá</h5>
                             <form action="#">
-                                <input type="text" placeholder="Enter your coupon code">
+                                <input type="text" placeholder="Mã giảm giá">
                                 <button type="submit" class="site-btn">Áp mã</button>
                             </form>
                         </div>
