@@ -140,14 +140,7 @@ if (isset($_SESSION['customer_id'])) {
                     <ul>
                         <li class="active"><a href="./index.php">Trang chủ</a></li>
                         <li><a href="./shop-grid.php">Sản phẩm</a></li>
-                        <li><a href="#">Pages</a>
-                            <ul class="header__menu__dropdown">
-                                <li><a href="./shop-details.php">Shop Details</a></li>
-                                <li><a href="./shoping-cart.php">Shoping Cart</a></li>
-                                <li><a href="./checkout.php">Check Out</a></li>
-                                <li><a href="./blog-details.php">Blog Details</a></li>
-                            </ul>
-                        </li>
+                    
 
                         <li><a href="./contact.php">Liên hệ</a></li>
                     </ul>

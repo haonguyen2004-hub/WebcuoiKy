@@ -16,9 +16,9 @@ include 'includes/db_conn.inc';
                 </div>
                 <div class="featured__controls">
                     <ul>
-                        <li class="active" data-filter="all">Nổi bật</li>
+                        <li class="active" data-filter="all">Bán chạy</li>
                         <li data-filter="new">Mới nhất</li>
-                        <li data-filter="hot">Bán chạy</li>
+                        <li data-filter="hot">Nổi bật</li>
                     </ul>
                 </div>
             </div>
