@@ -58,7 +58,7 @@ $reviews = $review_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                     </div>
                     <p><?php echo nl2br(htmlspecialchars($cake['description'])); ?></p>
                     <input type="hidden" id="product_id" value="<?php echo $cake['product_id']; ?>">
-                    <a type="button" onclick="addToCart(<?php echo $maSP ?>)" class="primary-btn">Thêm vào
+                    <a type="button" onclick="addToCart(<?php echo $maSP ?>)" class="primary-btn ">Thêm vào
                         giỏ hàng</a>
                        
                     <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
