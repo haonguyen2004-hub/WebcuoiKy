@@ -43,22 +43,23 @@ $discounts_result = $conn->query("SELECT * FROM discounts");
                     <td><?php echo $row['discount_id']; ?></td>
                     <td><?php echo htmlspecialchars($row['discount_name']); ?></td>
                     <td><?php echo $row['discount_type'] === 'percentage' ? 'Phần trăm' : 'Cố định'; ?></td>
-                    <td><?php echo $row['discount_value']; ?></td>
+                    <td><?php echo number_format($row['discount_value'], 0, ',', '.'); ?></td>
                     <td><?php echo $row['start_date']; ?></td>
                     <td><?php echo $row['end_date']; ?></td>
                     <td>
-                        <a href="edit_discount.php?id=<?php echo $row['discount_id']; ?>" class="btn btn-primary btn-sm">Sửa</a>
-                        <a href="DiscountManager.php?delete_id=<?php echo $row['discount_id']; ?>" 
-                           class="btn btn-danger btn-sm"
-                           onclick="return confirm('Bạn có chắc muốn xóa giảm giá này?');">Xóa</a>
+                        <a href="edit_discount.php?id=<?php echo $row['discount_id']; ?>"
+                            class="btn btn-primary btn-sm">Sửa</a>
+                        <a href="DiscountManager.php?delete_id=<?php echo $row['discount_id']; ?>"
+                            class="btn btn-danger btn-sm"
+                            onclick="return confirm('Bạn có chắc muốn xóa giảm giá này?');">Xóa</a>
                     </td>
                 </tr>
             <?php endwhile; ?>
         </tbody>
     </table>
 </div>
+
 <?php
 $contentadmin = ob_get_clean();
 include "layoutadmin.php";
 ?>
-
