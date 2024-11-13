@@ -13,12 +13,12 @@ $thongbao = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lấy dữ liệu từ form
-    $first_name = trim($_POST['first_name']);
-    $last_name = trim($_POST['last_name']);
-    $email = trim($_POST['email']);
-    $phone = trim($_POST['phone']);
-    $pass = $_POST['pass'];
-    $repass = $_POST['repass'];
+    $first_name = trim(@$_POST['first_name']);
+    $last_name = trim(@$_POST['last_name']);
+    $email = trim(@$_POST['email']);
+    $phone = trim(@$_POST['phone']);
+    $pass = @$_POST['pass'];
+    $repass = @$_POST['repass'];
 
     // Kiểm tra đầu vào
     if (empty($first_name) || empty($last_name)) {

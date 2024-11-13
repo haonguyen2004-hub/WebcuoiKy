@@ -12,8 +12,8 @@ $thongbao = "";
 if (!isset($conn) || !$conn) {
     $thongbao = "Kết nối cơ sở dữ liệu thất bại.";
 } elseif ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_SESSION['user'])) {
-    $username = trim($_POST['TenDN']);
-    $password = trim($_POST['MatKhau']);
+    $username = @trim($_POST['TenDN']);
+    $password = @trim($_POST['MatKhau']);
 
     if (empty($username) || empty($password)) {
         $thongbao = "Tên đăng nhập và mật khẩu không được trống.";

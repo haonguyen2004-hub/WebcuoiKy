@@ -78,19 +78,33 @@ $totalAmount = 0;
                                         <td class="shoping__cart__price">
                                             <?php echo number_format($item['price'], 0, ',', '.'); ?> VNĐ
                                         </td>
+                                        <form action="update_cart.php" method="POST">
                                         <td class="shoping__cart__quantity">
                                             <div class="quantity">
                                                 <div class="pro-qty">
-                                                    <input type="number" name="quantity"
-                                                        value="<?php echo $item['quantity']; ?>" min="1" required
-                                                        data-price="<?php echo $item['price']; ?>">
+                                                   
+                                                       
+                                                        <input type="number" name="quantity[]"
+                                                            value="<?php echo $item['quantity'];?>" min="1" required>
+
                                                 </div>
                                             </div>
                                         </td>
+                                        <input type="hidden" name="cart_item_id[]"
+                                        value="<?php echo $item['cart_item_id']; ?>">
                                         <td class="shoping__cart__total">
                                             <?php echo number_format($item['total_price'], 0, ',', '.'); ?> VNĐ
                                         </td>
+                                        <td class="">
+
+
+                                          
+
+                                        </td>
+                                        
                                         <td class="shoping__cart__item__close">
+                                        <input  class="btn btn-primary btn-lg" type="submit" value="Lưu thay đổi">
+                                        </form>
                                             <a href="includes/remove_from_cart.php?cart_item_id=<?php echo $item['cart_item_id']; ?>"
                                                 class="btn btn-danger btn-lg" role="button">
                                                 <i class="fas fa-times"></i> <!-- Thêm biểu tượng "X" -->
@@ -99,11 +113,13 @@ $totalAmount = 0;
                                     </tr>
                                     <?php $totalAmount += (float) $item['total_price']; ?>
                                 <?php endwhile; ?>
+
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
