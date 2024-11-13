@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2024 at 09:31 AM
+-- Generation Time: Nov 13, 2024 at 10:15 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -63,11 +63,8 @@ CREATE TABLE `cartitems` (
 
 INSERT INTO `cartitems` (`cart_item_id`, `cart_id`, `product_id`, `quantity`, `price`) VALUES
 (5, 3, 22, 2, 200000.00),
-(10, 2, 11, 3, 50000.00),
-(13, 2, 12, 8, 20000.00),
-(14, 2, 2, 4, 25000.00),
-(15, 2, 3, 3, 15000.00),
-(16, 2, 5, 2, 15000.00);
+(39, 1, 4, 2, 17000.00),
+(41, 2, 11, 1, 40000.00);
 
 -- --------------------------------------------------------
 
@@ -140,7 +137,7 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`customer_id`, `first_name`, `last_name`, `email`, `phone`, `address`, `created_at`, `updated_at`, `password`) VALUES
 (1, 'Nguyen', 'Van A', 'nguyenvana@example.com', '0987654321', '123 Đường ABC, Hà Nội', '2024-10-15 15:00:33', '2024-10-29 17:18:00', '827ccb0eea8a706c4c34a16891f84e7b'),
-(2, 'Tran', 'Thi B', 'tranthib@example.com', '0977654321', '456 Đường XYZ, TP.HCM', '2024-10-15 15:00:33', '2024-10-29 17:18:00', '827ccb0eea8a706c4c34a16891f84e7b'),
+(2, 'Tran', 'Thi B', 'tranthib@example.com', '0977654321', '456 Đường XYZ, TP.HCM', '2024-10-15 15:00:33', '2024-11-12 08:56:39', '123456'),
 (3, 'Le', 'Van C', 'levanc@example.com', '0967654321', '789 Đường DEF, Đà Nẵng', '2024-10-15 15:00:33', '2024-10-29 17:18:00', '827ccb0eea8a706c4c34a16891f84e7b');
 
 -- --------------------------------------------------------
@@ -219,7 +216,10 @@ INSERT INTO `orderdetails` (`order_detail_id`, `order_id`, `product_id`, `quanti
 (29, 19, 49, 1, 20000.00),
 (30, 20, 9, 1, 25000.00),
 (31, 21, 3, 1, 15000.00),
-(32, 22, 1, 1, 20000.00);
+(32, 22, 1, 1, 20000.00),
+(33, 23, 2, 4, 25000.00),
+(34, 23, 3, 3, 15000.00),
+(35, 23, 5, 2, 15000.00);
 
 -- --------------------------------------------------------
 
@@ -266,7 +266,8 @@ INSERT INTO `orders` (`order_id`, `customer_id`, `total_amount`, `order_status`,
 (19, 1, 42000.00, 'processing', '2024-11-12 06:43:27', 'Thanh Toán Khi Nhận Hàng', '22 đường só 5 ấp 1 xã tân thạnh tây ', 'Hcm', '0899414692', 'Buổi chiều'),
 (20, 1, 25000.00, 'processing', '2024-11-12 07:08:46', 'Thanh Toán Khi Nhận Hàng', '22 đường só 5 ấp 1 xã tân thạnh tây ', 'Hcm', '0899414692', 'Buổi chiều'),
 (21, 1, 15000.00, 'processing', '2024-11-12 07:12:07', 'Thanh Toán Khi Nhận Hàng', '22 đường só 5 ấp 1 xã tân thạnh tây ', 'Hcm', '0899414692', 'Buổi chiều'),
-(22, 1, 20000.00, 'processing', '2024-11-12 07:14:34', 'Thanh Toán Khi Nhận Hàng', '22 đường só 5 ấp 1 xã tân thạnh tây ', 'Hcm', '0899414692', 'Buổi chiều');
+(22, 1, 20000.00, 'processing', '2024-11-12 07:14:34', 'Thanh Toán Khi Nhận Hàng', '22 đường só 5 ấp 1 xã tân thạnh tây ', 'Hcm', '0899414692', 'Buổi chiều'),
+(23, 2, 175000.00, 'processing', '2024-11-12 10:10:22', 'Thanh Toán Khi Nhận Hàng', '22 đường só 5 ấp 1 xã tân thạnh tây ', 'Hcm', '0899414692', 'Buổi chiều');
 
 -- --------------------------------------------------------
 
@@ -320,10 +321,10 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`product_id`, `product_name`, `description`, `price`, `stock_quantity`, `product_image`, `category_id`, `created_at`, `updated_at`) VALUES
 (1, 'Bánh ngọt 001', 'Mô tả bánh ngọt 001', 20000.00, 99, 'sp001.jpg', 1, '2024-10-15 14:59:06', '2024-11-12 07:14:34'),
-(2, 'Bánh ngọt 002', 'Mô tả bánh ngọt 002', 25000.00, 120, 'sp002.jpg', 1, '2024-10-15 14:59:06', '2024-10-29 16:07:07'),
-(3, 'Bánh ngọt 003', 'Mô tả bánh ngọt 003', 15000.00, 149, 'sp003.jpg', 1, '2024-10-15 14:59:06', '2024-11-12 07:12:07'),
+(2, 'Bánh ngọt 002', 'Mô tả bánh ngọt 002', 25000.00, 116, 'sp002.jpg', 1, '2024-10-15 14:59:06', '2024-11-12 10:10:22'),
+(3, 'Bánh ngọt 003', 'Mô tả bánh ngọt 003', 15000.00, 146, 'sp003.jpg', 1, '2024-10-15 14:59:06', '2024-11-12 10:10:22'),
 (4, 'Bánh ngọt 004', 'Mô tả bánh ngọt 004', 17000.00, 200, 'sp004.jpg', 1, '2024-10-15 14:59:06', '2024-10-29 13:03:24'),
-(5, 'Bánh ngọt 005', 'Mô tả bánh ngọt 005', 15000.00, 90, 'sp005.jpg', 1, '2024-10-15 14:59:06', '2024-10-29 13:05:22'),
+(5, 'Bánh ngọt 005', 'Mô tả bánh ngọt 005', 15000.00, 88, 'sp005.jpg', 1, '2024-10-15 14:59:06', '2024-11-12 10:10:22'),
 (6, 'Bánh mỳ 001', 'Mô tả bánh mỳ 001', 18000.00, 100, 'sp006.jpg', 2, '2024-10-15 14:59:06', '2024-10-29 13:04:58'),
 (7, 'Bánh mỳ 002', 'Mô tả bánh mỳ 002', 33000.00, 80, 'sp007.jpg', 2, '2024-10-15 14:59:06', '2024-10-29 13:05:02'),
 (8, 'Bánh mỳ 003', 'Mô tả bánh mỳ 003', 25000.00, 60, 'sp008.jpg', 2, '2024-10-15 14:59:06', '2024-10-29 13:05:17'),
@@ -492,7 +493,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cartitems`
 --
 ALTER TABLE `cartitems`
-  MODIFY `cart_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `cart_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `carts`
@@ -522,13 +523,13 @@ ALTER TABLE `discounts`
 -- AUTO_INCREMENT for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `order_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `productdiscounts`
